@@ -1,0 +1,32 @@
+program := {statement}.
+statement := formula TERM.
+formula := Ifthenexp ELSE formula | otherexp.
+Ifthenexp := IF ifexp THEN formula.
+ifexp := formula.
+otherexp := elementaryExp IMPLIES otherexp | elementaryExp.
+elementaryExp := elementaryExp AND boolTerm | elementaryExp OR boolTerm |
+elementaryExp XOR boolTerm | elementaryExp EQUALS boolTerm.
+boolTerm := NOT boolTerm | CONST | LPAREN formula RPAREN | ID.
+ID := letter{letter}.
+letter := upper | lower.
+upper := "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" |
+"N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" .
+lower := "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" |
+"n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" .
+IF := "IF".
+THEN := "THEN".
+ELSE := "ELSE".
+TERM := ";".
+IMPLIES := "IMPLIES".
+LPAREN := "(".
+RPAREN := ")".
+AND := "AND".
+OR := "OR".
+XOR := "XOR".
+EQUALS := "EQUALS".
+NOT := "NOT".
+CONST := "TRUE" | "FALSE".
+
+
+
+ 

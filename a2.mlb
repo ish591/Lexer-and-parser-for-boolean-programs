@@ -1,0 +1,9 @@
+local
+ $(SML_LIB)/basis/basis.mlb
+ $(SML_LIB)/mlyacc-lib/mlyacc-lib.mlb
+ COL226a2.yacc.sig
+ COL226a2.yacc.sml
+ COL226a2.lex.sml
+in
+ load-COL226a2.sml
+end
