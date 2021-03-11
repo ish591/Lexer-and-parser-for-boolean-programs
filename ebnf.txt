@@ -1,18 +1,26 @@
-program := {statement}.
+program := statement{statement}.
+
 statement := formula TERM.
-formula := Ifthenexp ELSE formula | otherexp.
-Ifthenexp := IF ifexp THEN formula.
-ifexp := formula.
+
+formula := otherexp | ifthenexp | otherexp binop ifthenexp | otherexp IMPLIES ifthenexp
+
+ifthenexp := IF formula THEN formula ELSE formula | NOT ifthenexp
+
 otherexp := elementaryExp IMPLIES otherexp | elementaryExp.
-elementaryExp := elementaryExp AND boolTerm | elementaryExp OR boolTerm |
-elementaryExp XOR boolTerm | elementaryExp EQUALS boolTerm.
-boolTerm := NOT boolTerm | CONST | LPAREN formula RPAREN | ID.
-ID := letter{letter}.
+
+elementaryExp := boolTerm | elementaryExp binop boolTerm.
+
+boolTerm := NOT boolTerm | CONST | LPAREN formula RPAREN | ID .
+
+binop := AND | OR | XOR | EQUALS
+
 letter := upper | lower.
+
 upper := "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" |
 "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" .
 lower := "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" |
 "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" .
+
 IF := "IF".
 THEN := "THEN".
 ELSE := "ELSE".
@@ -26,6 +34,11 @@ XOR := "XOR".
 EQUALS := "EQUALS".
 NOT := "NOT".
 CONST := "TRUE" | "FALSE".
+ID := letter{letter}.
+
+
+
+ 
 
 
 

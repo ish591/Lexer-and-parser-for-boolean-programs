@@ -24,7 +24,7 @@ structure Tokens= Tokens
 alpha=[A-Za-z];
 ws = [\ \t];
 %%
-\n         => (pos := (!pos) + 1; lex());
+\n         => (columnNum := 0;pos := (!pos) + 1; lex());
 
 {ws}+      => (columnNum := (!columnNum)+size(yytext);lex());
 
